@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid pt-3 border-top border-bottom d-none d-md-block"
+    <div class="container-fluid pt-3 border-top border-bottom"
         style="background-color: var(--secondary-color);color:var(--primary-color)">
         <div class="row">
             <div class="col-12 col-md-4 mb-3 d-flex flex-column align-items-center justify-content-center">

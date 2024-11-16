@@ -1,5 +1,5 @@
 <template>
-    <nav class="d-block d-md-none navbar navbar-expand-lg top-brand p-0 border-top position-fixed bottom-0 w-100"
+    <nav class=" d-none navbar navbar-expand-lg top-brand p-0 border-top position-fixed bottom-0 w-100"
         style="z-index: 9;background-color: #231F20;">
         <div class="container-fluid">
             <div class="navbar-nav d-flex flex-row w-100 justify-content-around ">

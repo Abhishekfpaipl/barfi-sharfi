@@ -1,7 +1,7 @@
 <template>
-    <div class="container my-5">
+    <div class="container">
         <div class="accordion" id="accordionExample">
-            <div class="accordion-item border my-5" v-for="(collection, index) in collections" :key="index">
+            <div class="accordion-item" v-for="(collection, index) in collections" :key="index">
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         :data-bs-target="'#collapseOne' + index" aria-expanded="true"
@@ -29,10 +29,10 @@
                                         </span>
                                         <span class="reviews-count text-muted ms-2">{{ product.reviews }} reviews</span>
                                     </div>
-                                    <!-- <button class="btn text-white w-100" style="background-color: var(--primary-color);"
+                                    <button class="btn text-white w-100" style="background-color: var(--primary-color);"
                                         data-bs-toggle="offcanvas" data-bs-target="#addProduct"
                                         :data-bs-productsid="product.sid" aria-controls="addProduct">Add to
-                                        cart</button> -->
+                                        cart</button>
                                 </div>
                             </div>
                         </div>
@@ -40,83 +40,20 @@
                 </div>
             </div>
         </div>
-        <ProductOffcanvas :product="collections" />
-        <!-- <QuickAdd :product="products" /> -->
+        <ProductOffcanvas :product="products" />
     </div>
 </template>
-
 <script>
-import ProductOffcanvas from "@/components/ProductOffcanvas.vue"
-// import QuickAdd from "@/components/QuickAdd.vue"
 export default {
-    name: 'GhewarCollection',
-    components: {
-        ProductOffcanvas,
-        // QuickAdd,
-    },
+    name: "CollectionsCard",
     props: {
         collections: {
             type: Array,
-            required: true,
-            default: () => []
-        },
-        type: {
-            type: String,
-        }
-    },
-    data() {
-        return {
+            required: true
         }
     }
 }
 </script>
+<style lang="">
 
-<style scoped>
-.hero-section {
-    height: 400px;
-    overflow: hidden;
-    background-color: #f8f3f0;
-}
-
-.hero-image {
-    height: 100%;
-    object-fit: cover;
-}
-
-.text-brown {
-    color: #8B2801;
-}
-
-
-.btn-brown:hover {
-    background-color: #6B1F01;
-    color: white;
-}
-
-.product-image {
-    height: 200px;
-    object-fit: cover;
-}
-
-.stars {
-    color: #FFD700;
-}
-
-.discount-badge {
-    color: #8B2801;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.card {
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.vendor-name {
-    font-size: 0.875rem;
-}
 </style>

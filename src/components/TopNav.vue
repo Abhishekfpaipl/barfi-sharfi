@@ -1,23 +1,5 @@
 <template>
-    <div class="w-100 position-fixed top-0" style="z-index: 10;">
-        <!-- <div class="d-flex justify-content-center align-items-center py-2 px-2"
-            style="background-color: var(--secondary-color); position: relative;">
-            
-            <div class="d-flex align-items-center" style="position: absolute; left: 10px;">
-                <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
-                    class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>
-            </div>
-            
-            <router-link to="/" class="d-none d-lg-flex align-items-center text-decoration-none">
-                <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
-                    style="height: 44px; object-fit: contain;">
-            </router-link> 
-
-            <router-link to="/" class="d-flex d-lg-none align-items-center text-decoration-none">
-                <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
-                    style="height: 42px; object-fit: contain;">
-            </router-link>
-        </div> -->
+    <div class="w-100 position-fixed top-0" style="z-index: 10;"> 
         <div class="d-flex justify-content-between align-items-center p-2 bg-white">
             <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
                 class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>
@@ -68,7 +50,7 @@
                     <router-link :to="page.router" class=" d-flex text-start text-decoration-none"
                         style="color: var(--primary-color) !important;">
                         <i :class="page.icon"></i>
-                        <p class="m-0 ms-2">sdfsdfsd {{ page.name }}</p>
+                        <p class="m-0 ms-2">{{ page.name }}</p>
                     </router-link>
                 </div>
             </div>
