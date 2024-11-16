@@ -16,7 +16,7 @@
             <SimilarProducts />
         </div>
         <div class="">
-            <AnimatedTextSection />
+            <!-- <AnimatedTextSection /> -->
         </div> 
     </div>
 </template>
@@ -24,7 +24,7 @@
 <script>
 import CarouselBanner from '@/components/CarouselBanner.vue'
 import NewProductCard from '@/components/NewProductCard.vue'
-import AnimatedTextSection from '@/components/AnimatedTextSection.vue'
+// import AnimatedTextSection from '@/components/AnimatedTextSection.vue'
 import FeaturesBox from '@/components/FeaturesBox.vue'
 import SimilarProducts from '@/components/SimilarProducts.vue' 
 export default {
@@ -32,7 +32,7 @@ export default {
     components: {
         NewProductCard,
         CarouselBanner,
-        AnimatedTextSection,
+        // AnimatedTextSection,
         FeaturesBox,
         SimilarProducts, 
     },
