@@ -18,8 +18,7 @@
                     style="height: 42px; object-fit: contain;">
             </router-link>
         </div> -->
-        <div class="d-flex justify-content-between align-items-center p-2"
-            style="background-color: var(--secondary-color)">
+        <div class="d-flex justify-content-between align-items-center p-2 bg-white">
             <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
                 class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>
             <router-link to="/" class="d-none d-lg-flex align-items-center text-decoration-none">
@@ -54,24 +53,22 @@
 
         <!-- SideMenu Offcanvas -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="topSideMenu" aria-labelledby="topSideMenuLabel">
-            <div class="offcanvas-header border-bottom d-flex justify-content-between align-items-center"
-                style="background-color: var(--secondary-color); ">
+            <div class="offcanvas-header border-bottom d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                    <img src="/img/logo.png" alt="Brand Logo"
-                        style="width: 100px;object-fit: contain;">
+                    <img src="/img/logo.png" alt="Brand Logo" style="width: 100px;object-fit: contain;">
                 </div>
                 <button type="button" class="fs-4 btn bi bi-x-lg " style="color: var(--primary-color); "
                     data-bs-dismiss="offcanvas" aria-label="Close">
 
                 </button>
             </div>
-            <div style="background-color: var(--secondary-color); color: var(--primary-color);"
-                class="offcanvas-body position-relative w-100">
+            <div style="color: var(--primary-color) !important;" class="offcanvas-body position-relative w-100">
                 <div v-for="(page, index) in pages" :key="index" class=" border-bottom py-3"
                     data-bs-dismiss="offcanvas">
-                    <router-link :to="page.router" class=" d-flex text-start text-decoration-none primary-text">
+                    <router-link :to="page.router" class=" d-flex text-start text-decoration-none"
+                        style="color: var(--primary-color) !important;">
                         <i :class="page.icon"></i>
-                        <p class="m-0 ms-2">{{ page.name }}</p>
+                        <p class="m-0 ms-2">sdfsdfsd {{ page.name }}</p>
                     </router-link>
                 </div>
             </div>

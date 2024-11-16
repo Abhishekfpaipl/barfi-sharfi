@@ -4,15 +4,16 @@
         <div class="row">
             <div class="col-12 col-md-4 mb-3 d-flex flex-column align-items-center justify-content-center">
                 <router-link to="/" class="text-decoration-none text-dark d-flex flex-column align-items-center">
-                    <img src="https://carolieto.com/uploads/logo.png" style="width: 200px;object-fit: contain; ">
+                    <img src="/img/logo.png" style="width: 200px;object-fit: contain; ">
                 </router-link>
 
             </div>
 
             <div class=" col-12 col-md-4 mb-3 text-center">
                 <p class="mb-2 fw-bold">Contact Us</p>
-                <p class="mb-2">Email : info@carolieto.com</p>
-                <p class="mb-2">Address : C 58, Ground Floor, C-Block, <br>
+                <p class="mb-2">Email : barfisharfee@gmail.com.com</p>
+                <p class="mb-2">Address :Plot No. 15A, Shop No.9, LGF Geeta Bhawan, <br> Opp. Punjabi Bagh Club Club
+                    Road, <br> West Punjabi Bagh New Delhi - 110026 <br>
                     Mansarover Garden, Delhi - 110015 </p>
                 <div class="d-flex gap-2 justify-content-center">
                     <p class="fw-bold">Follow Us :</p>
@@ -29,7 +30,7 @@
                     <div class="d-flex flex-column">
                         <router-link :to="link.link" class="text-decoration-none my-1"
                             style="color:var(--primary-color)" v-for="(link, index) in company" :key="index">{{
-                            link.name }}</router-link>
+                                link.name }}</router-link>
                     </div>
                 </div>
                 <div class="mb-3 text-start">

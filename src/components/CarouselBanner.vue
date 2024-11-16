@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/products" class="text-decoration-none text-dark">
+    <router-link to="/" class="text-decoration-none text-dark">
       <img src="/img/banner.jpg" class="d-md-block d-none w-100" alt="Banner">
       <img src="/img/banner.jpg" class="d-md-none d-block w-100" alt="Banner">
     </router-link>

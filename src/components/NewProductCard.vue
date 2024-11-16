@@ -1,17 +1,8 @@
 <template>
     <div class="container-fluid p-0">
-        <!-- Hero Section -->
-        <div class="hero-section position-relative mb-4">
-            <div class="hero-content position-absolute start-0 top-50 translate-middle-y ps-4">
-                <h1 class="text-brown mb-2">Ghewar & Fini Collection</h1>
-                <p class="text-brown mb-4">Curated and Unique Ghewar & Fini Hampers</p>
-                <button class="btn btn-brown">Explore Collection</button>
-            </div>
-            <img src="https://www.sweedesi.com/cdn/shop/files/Untitled_design_23.png?v=1721988866&width=1000"
-                alt="Ghewar Collection" class="hero-image w-100 object-fit-cover" />
+        <div class="hero-section mb-5">
+            <h1 class="display-5 text-uppercase">{{ type }}</h1>
         </div>
-
-        <!-- Products Grid -->
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 <div v-for="product in products" :key="product.id" class="col">
@@ -20,7 +11,7 @@
                         <div class="card-body">
                             <div class="vendor-name small text-muted mb-1">{{ product.vendor }}</div>
                             <h5 class="card-title h6 mb-2">{{ product.name }}</h5>
-                            <div class="price-section mb-2">
+                            <!-- <div class="price-section mb-2">
                                 <div class="bg-light p-3 rounded">
                                     <ul class="list-unstyled">
                                         <li v-for="(price, idx) in product.prices" :key="idx"
@@ -37,7 +28,7 @@
                                 <span class="discount-badge ms-2" v-if="product.discount">
                                     Save {{ product.discount }}%
                                 </span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="ratings mb-3">
                             <span v-if="product.badge" class="badge bg-success mb-3 d-block">
@@ -48,22 +39,37 @@
                             </span>
                             <span class="reviews-count text-muted ms-2">{{ product.reviews }} reviews</span>
                         </div>
-                        <button class="btn btn-brown w-100">Add to cart</button>
+                        <button class="btn text-white w-100" style="background-color: var(--primary-color);"
+                            data-bs-toggle="offcanvas" data-bs-target="#addProduct" :data-bs-productsid="product.sid"
+                            aria-controls="addProduct">Add to cart</button>
+                        <!-- <button class="btn btn-brown w-100" data-bs-toggle="modal" data-bs-target="#quickAddModal"
+                            :data-bs-productsid="product.sid" aria-controls="addProduct">Add to cart</button> -->
                     </div>
                 </div>
             </div>
         </div>
+        <ProductOffcanvas :product="products" />
+        <!-- <QuickAdd :product="products" /> -->
     </div>
 </template>
 
 <script>
+import ProductOffcanvas from "@/components/ProductOffcanvas.vue"
+// import QuickAdd from "@/components/QuickAdd.vue"
 export default {
     name: 'GhewarCollection',
+    components: {
+        ProductOffcanvas,
+        // QuickAdd,
+    },
     props: {
         products: {
             type: Array,
             required: true,
             default: () => []
+        },
+        type: {
+            type: String,
         }
     },
     data() {
@@ -88,13 +94,7 @@ export default {
 .text-brown {
     color: #8B2801;
 }
-
-.btn-brown {
-    background-color: #8B2801;
-    color: white;
-    padding: 8px 24px;
-    border: none;
-}
+ 
 
 .btn-brown:hover {
     background-color: #6B1F01;

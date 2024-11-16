@@ -24,18 +24,33 @@
                         <span v-if="product.badge" class="badge bg-success mb-3 d-block">
                             {{ product.badge }}
                         </span>
-                        <button class="btn btn-primary w-100 mt-3" @click="addToCart(product)">
+                        <button class="btn btn-primary w-100 mt-3" @click="addToCart(product)" data-bs-toggle="modal"
+                            data-bs-target="#quickAddModal" :data-bs-productsid="product.sid"
+                            aria-controls="addProduct">
                             Add to Cart
                         </button>
+                        <!-- <button class="btn btn-primary w-100 mt-3" @click="addToCart(product)"
+                            data-bs-toggle="offcanvas" data-bs-target="#addProduct"
+                            :data-bs-productsid="product.sid" aria-controls="addProduct">
+                            Add to Cart
+                        </button> -->
                     </div>
                 </div>
             </div>
         </div>
+        <ProductOffcanvas :product="products" />
+        <QuickAdd :product="products" />
     </div>
 </template>
 <script>
+import ProductOffcanvas from "@/components/ProductOffcanvas.vue"
+import QuickAdd from "@/components/QuickAdd.vue"
 export default {
     name: "ProductCards",
+    components: {
+        ProductOffcanvas,
+        QuickAdd,
+    },
     props: {
         products: {
             type: Array,
