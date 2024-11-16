@@ -1,11 +1,34 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <TopNav />
+  <transition name="fade">
+    <router-view />
+  </transition>
+  <FooterBar />
+  <BottomNav />
 </template>
-
+<script>
+import BottomNav from '@/components/BottomNav.vue';
+import FooterBar from '@/components/FooterBar.vue';
+import TopNav from '@/components/TopNav.vue'
+export default {
+  name: 'E-comApp',
+  components: {
+    BottomNav,
+    TopNav,
+    FooterBar,
+  },
+  computed: {
+    hide() {
+      const hiddenPages = ['LoginPage', 'RegistrationPage', 'ForgotPasswordPage', 'CartPage', 'NotificationPage', 'OrdersListPage', 'EmailVerificationPage', 'ResetPasswordPage']
+      return hiddenPages.includes(this.$route.name)
+    },
+    hidden() {
+      const hiddenPages = ['LoginPage', 'RegistrationPage', 'ForgotPasswordPage', 'ProductPage', 'NotificationPage', 'EmailVerificationPage', 'ResetPasswordPage']
+      return hiddenPages.includes(this.$route.name)
+    },
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -15,16 +38,59 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+:root {
+  --primary-color: #C1456A;
+  // --primary-color: #0D4168;
+  --secondary-color: #C49C56;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.primary-text {
+  background: #FFFC92;
+  background: linear-gradient(to right, #FFFC92 35%, #CEAA52 50%, #FFFC92 50%, #CEAA52 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+#scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.text-ellipsis2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-ellipsis3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accordion {
+  --bs-accordion-btn-focus-box-shadow: none !important;
+}
+
+.form-control {
+  box-shadow: none !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 </style>
