@@ -41,7 +41,7 @@ export default {
 :root {
   --primary-color: #C1456A;
   // --primary-color: #0D4168;
-  --secondary-color: #C49C56;
+  --secondary-color: #F5F5F3;
 }
 
 .primary-text {
@@ -83,6 +83,14 @@ export default {
 
 .accordion {
   --bs-accordion-btn-focus-box-shadow: none !important;
+}
+.smaller{
+  font-size: 12px;
+}
+.accordion-button:not(.collapsed) {
+  color:var(--secondary-color);
+  background-color: var(--primary-color);
+  box-shadow:none !important;
 }
 
 .form-control {

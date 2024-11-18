@@ -4,7 +4,7 @@
       <span class="border-bottom border-danger pb-2">Flavoured Nuts & Mukhwas</span>
     </h2>
 
-    <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4">
       <div v-for="(product, index) in products" :key="index" class="col">
         <div class="card shadow-sm h-100">
           <div class="position-absolute" v-if="product.discount">
@@ -19,8 +19,8 @@
             <p class="small mb-2 text-ellipsis2" style="min-height: 46px;">{{ product.name }}</p>
             <div class="mt-auto">
               <div v-if="product.rating" class="my-2">
-                <span class="text-warning" v-for="n in 5" :key="n">
-                  ★
+                <span class="text-danger small" v-for="n in 5" :key="n">
+                  <i class="bi bi-heart-fill me-1"></i>
                 </span>
                 <small class="ms-1 text-muted">{{ product.reviews }} review</small>
               </div>

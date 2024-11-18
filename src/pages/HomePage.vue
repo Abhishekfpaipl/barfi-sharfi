@@ -3,21 +3,17 @@
     <div class="" style="padding-top: 60px;overflow-x: hidden;">
         <CarouselBanner />
         <div class="">
-            <!-- <NewProductCard :products="sweetProducts" type="sweet menu"/> -->
-            <NewProductCard :collections="collections" />
+            <NewProductCard />
         </div>
         <div class="">
             <FeaturesBox />
         </div>
-        <!-- <div class="">
-            <NewProductCard :products="filteredProducts('savouries')" type="savouries menu" /> 
-        </div> -->
         <div class="my-5">
             <SimilarProducts />
         </div>
         <div class="">
             <!-- <AnimatedTextSection /> -->
-        </div> 
+        </div>
     </div>
 </template>
 
@@ -26,7 +22,7 @@ import CarouselBanner from '@/components/CarouselBanner.vue'
 import NewProductCard from '@/components/NewProductCard.vue'
 // import AnimatedTextSection from '@/components/AnimatedTextSection.vue'
 import FeaturesBox from '@/components/FeaturesBox.vue'
-import SimilarProducts from '@/components/SimilarProducts.vue' 
+import SimilarProducts from '@/components/SimilarProducts.vue'
 export default {
     name: "HomePage",
     components: {
@@ -34,33 +30,11 @@ export default {
         CarouselBanner,
         // AnimatedTextSection,
         FeaturesBox,
-        SimilarProducts, 
+        SimilarProducts,
     },
     data() {
         return {
         };
-    },
-    computed: {
-        collections() {
-            return this.$store.getters.getCollections
-        },
-        sweetProducts() {
-            return this.$store.getters.getProducts.filter(product => product.type === 'sweets menu');
-        },
-        savouriesProducts() {
-            return this.$store.getters.getProducts.filter(product => product.type === 'savouries menu');
-        },
-        filteredProducts() {
-            return (type) => {
-                if (type === 'sweet') {
-                    return this.sweetProducts;
-                } else if (type === 'savouries') {
-                    return this.savouriesProducts;
-                } else {
-                    return this.products; // Fallback to all products if no type is specified
-                }
-            };
-        }
     },
 };
 </script>

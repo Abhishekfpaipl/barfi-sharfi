@@ -1,13 +1,13 @@
 <template>
-    <div class="w-100 position-fixed top-0" style="z-index: 10;"> 
-        <div class="d-flex justify-content-between align-items-center p-2 bg-white">
+    <div class="w-100 position-fixed top-0" style="z-index: 10; background-color: var(--secondary-color);">
+        <div class="d-flex justify-content-between align-items-center p-2">
             <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
                 class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>
             <router-link to="/" class="d-none d-lg-flex align-items-center text-decoration-none">
-                <img src="/img/logo.png" alt="Brand Logo" style="height: 44px; object-fit: contain;">
+                <img src="/img/logo.jpeg" alt="Brand Logo" style="height: 44px; object-fit: contain;">
             </router-link>
             <router-link to="/" class="d-flex d-lg-none align-items-center text-decoration-none">
-                <img src="/img/logo.png" alt="Brand Logo" style="height: 42px; object-fit: contain;">
+                <img src="/img/logo.jpeg" alt="Brand Logo" style="height: 42px; object-fit: contain;">
             </router-link>
             <div class="d-flex gap-2 align-items-center ">
                 <!-- <div class="form-check form-switch mb-0">

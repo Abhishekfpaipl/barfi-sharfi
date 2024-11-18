@@ -12,6 +12,8 @@
                 <!-- Product Details -->
                 <div v-if="activeProduct.id">
                     <img :src="activeProduct.image" class="img-fluid mb-3" style="height: 150px;" alt="Product Image">
+                    <p class="text-start mb-1"> {{ activeProduct.description }}</p>
+
                     <p class="text-start mb-1"><strong>Vendor:</strong> {{ activeProduct.vendor }}</p>
 
                     <div v-if="activeProduct.prices" class="bg-white">
@@ -56,7 +58,12 @@
 <script>
 export default {
     name: "ProductOffcanvas",
-    props: ["product", "onAddToCart"],
+    props:{
+        product: {
+            type: Array,
+            required: true,
+        },
+    },
     data() {
         return {
             activeProduct: {}, // The product being displayed
