@@ -19,14 +19,17 @@
                                 data-bs-target="#quickAddModal" :data-bs-productsid="product.sid"
                                 aria-controls="addProduct">
                                 <div class="d-flex justify-content-between align-items-center position-absolute w-100"
-                                    style="top: 1%;">
+                                    style="top: 1%;z-index: 10;">
                                     <span class="badge bg-danger rounded-end-5">
                                         <i class="bi bi-heart-fill me-2" style="color: white !important;"></i>
                                         {{ product.reviews }}
                                     </span>
-                                    <img src="/img/veg.png" alt="veg icon" class="wh-60" style="width: 25px;">
+                                    <!-- <img src="/img/veg.png" alt="veg icon" class="wh-60" style="width: 25px;"> -->
                                 </div>
-                                <img :src="product.image" :alt="product.name" class="card-img-top product-image">
+                                <div class="position-relative">
+                                    <img :src="product.image" :alt="product.name" class="card-img-top product-image">
+                                    <img src="/img/veg.png" alt="veg icon" class="veg-icon">
+                                </div>
                                 <div class="card-body text-start">
                                     <span v-if="product.badge" class="badge bg-success d-block">
                                         {{ product.badge }}
@@ -104,6 +107,15 @@ export default {
     height: 200px;
     object-fit: cover;
     object-position: top;
+    width: 100%;
+}
+
+.veg-icon {
+    position: absolute;
+    bottom: 5px;/* Adjust as needed for spacing */
+    right: 5px;/* Adjust for horizontal alignment */
+    width: 25px;/* Adjust the size of the veg icon */
+    z-index: 1;
 }
 
 .card {

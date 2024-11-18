@@ -3,9 +3,9 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="d-flex justify-content-center align-items-center">
-                <div class="rounded-circle wh-60 text-bg-dark px-1 d-flex justify-content-center align-items-center"
-                    data-bs-dismiss="modal">
-                    <i class="bi bi-x fs-5"></i>
+                <div class="rounded-circle wh-60 text-bg-dark d-flex justify-content-center align-items-center"
+                    data-bs-dismiss="modal" style="padding: 0px 6px !important;">
+                    <i class="bi bi-x fs-3"></i>
                 </div>
             </div>
             <div class="modal-content position-relative">
@@ -25,40 +25,6 @@
                     </div>
                     <p class="text-start small text-muted mb-1"> {{ activeProduct.description }}</p>
                     <p class="text-start mb-1"><strong>Vendor:</strong> {{ activeProduct.vendor }}</p>
-                    <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro adipisci,
-                        debitis, fuga vitae
-                        recusandae cum odio maxime qui dicta doloribus doloremque eius fugit sed reiciendis voluptatem
-                        et nostrum facere quidem ea. Dolorem animi ullam accusamus illo ipsam neque? Velit error tempora
-                        rem aliquam dolores laboriosam distinctio illum fuga, necessitatibus quia natus esse alias
-                        ducimus nobis doloremque fugiat animi dolorem neque similique, enim quidem quasi corrupti saepe.
-                        Ipsam adipisci quo asperiores eveniet, libero molestiae ab? Voluptatibus qui harum reprehenderit
-                        beatae. Voluptatem velit voluptas, deserunt corporis sint eligendi labore! Non aut facere
-                        suscipit provident quaerat, quo id optio voluptas natus quidem dolor omnis vel nemo ea. Expedita
-                        at molestias numquam ducimus suscipit illum esse autem voluptate quisquam, consequuntur,
-                        eligendi iste aliquam dolorem enim nam alias odio voluptatem corporis in neque assumenda quas
-                        delectus! Placeat blanditiis amet, error repudiandae ut tenetur veritatis maxime officia?
-                        Maiores, repellendus ex ratione porro perspiciatis tempora ullam, commodi, voluptatem ipsa non
-                        animi placeat incidunt nisi! Obcaecati similique, non blanditiis sequi at est architecto
-                        quibusdam fugit? Quam voluptatibus nulla totam ab vero culpa sed error, temporibus alias aliquam
-                        explicabo velit officiis quis consequuntur! Hic illum quasi dolor vero, optio distinctio quam,
-                        fugiat fugit saepe amet laborum eaque ipsum doloribus asperiores voluptate cupiditate
-                        voluptates! Deserunt eum sint sequi impedit incidunt minima, fugiat in accusantium inventore
-                        corporis? Impedit, laboriosam. Rerum distinctio dignissimos optio doloribus commodi iure,
-                        molestias quaerat iusto asperiores ex modi magni! Laborum repudiandae qui, obcaecati nulla
-                        necessitatibus ad sed quaerat labore, dolor ducimus rem aspernatur! Officiis, blanditiis quia
-                        odio recusandae esse laboriosam fugiat saepe, ipsa sed excepturi cupiditate quaerat rem, quod
-                        pariatur? Itaque, at quis quod reiciendis pariatur voluptate vitae nostrum sapiente minima natus
-                        fugiat eveniet quo placeat, quae quisquam ea obcaecati alias facilis molestias facere incidunt?
-                        Accusamus nihil voluptatum ducimus praesentium eaque vero dolore quae asperiores perferendis.
-                        Commodi, laudantium! Necessitatibus suscipit nostrum excepturi veritatis doloribus quia fugit
-                        eveniet saepe labore distinctio architecto nemo temporibus nesciunt qui sequi eos, aut quas non.
-                        Sapiente dolores illo nobis quae inventore deserunt vel qui magni totam velit, perspiciatis
-                        repellendus doloremque placeat quis enim autem, numquam sequi iusto provident amet optio.
-                        Consequatur molestiae blanditiis commodi aliquam natus ullam officiis inventore, voluptatem
-                        vitae maxime unde nulla perspiciatis voluptates corporis, soluta provident facere repellendus
-                        nostrum? Sint molestias, iusto dolor animi ipsam, itaque laboriosam quam facere ratione quod
-                        doloremque dolore incidunt consectetur perferendis! Provident neque, accusamus optio veniam
-                        dolorum iure ipsum minus nobis deserunt voluptate explicabo.</p>
                     <div v-if="activeProduct.prices" class="bg-white">
                         <p class="text-start mb-0">Choose your options :</p>
                         <div class="my-2" v-for="(price, index) in activeProduct.prices" :key="index">
