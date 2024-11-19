@@ -1,5 +1,5 @@
 <template>
-    <div class="container mb-5" style="padding-top: 60px;overflow-x: hidden">
+    <div class="container mb-5" style="overflow-x: hidden">
         <!-- <h2 class="display-5 text-uppercase" style="color: var(--bg-primary);">Our Products</h2> -->
 
         <!-- Search and Filter Section -->

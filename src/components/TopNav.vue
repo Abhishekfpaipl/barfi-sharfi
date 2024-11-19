@@ -1,5 +1,5 @@
 <template>
-    <div class="w-100 position-fixed top-0" style="z-index: 10; background-color: var(--secondary-color);">
+    <div class="w-100" style="z-index: 11; background-color: var(--secondary-color);">
         <div class="d-flex justify-content-between align-items-center p-2">
             <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
                 class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>

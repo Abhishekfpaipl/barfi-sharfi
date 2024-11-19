@@ -4,7 +4,7 @@
             <button class="btn w-100 text-start rounded-0 my-5"
                 style="background-color: var(--primary-color); color: var(--secondary-color);" type="button"
                 data-bs-toggle="collapse" :data-bs-target="'#collapseExample' + index" aria-expanded="false"
-                :aria-controls="'collapseExample' + index" @click="toggleCollapse(index)">
+                :aria-controls="'collapseExample' + index" @click="toggleCollapse(index)" :id="'menu' + index">
                 <p class="text-capitalize fs-5 mb-1">{{ collection.type }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="smaller">{{ collection.shortDescription }}</p>
@@ -26,10 +26,10 @@
                                     </span>
                                     <!-- <img src="/img/veg.png" alt="veg icon" class="wh-60" style="width: 25px;"> -->
                                 </div>
-                                <div class="position-relative">
-                                    <img :src="product.image" :alt="product.name" class="card-img-top product-image">
-                                    <img src="/img/veg.png" alt="veg icon" class="veg-icon">
-                                </div>
+                                <!-- <div class="position-relative"> -->
+                                <img :src="product.image" :alt="product.name" class="card-img-top product-image">
+                                <!-- <img src="/img/veg.png" alt="veg icon" class="veg-icon"> -->
+                                <!-- </div> -->
                                 <div class="card-body text-start">
                                     <span v-if="product.badge" class="badge bg-success d-block">
                                         {{ product.badge }}
@@ -37,7 +37,10 @@
                                     <p class="card-title small mb-2 fw-bold">{{ product.name }}</p>
                                     <p class="text-ellipsis2 smaller">{{ product.description }}</p>
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="mb-0">Rs. {{ product.prices[0].cost }}</span>
+                                        <div class="flex-fill d-flex justify-content-between align-items-center">
+                                            <p class="mb-0">Rs. {{ product.prices[0].cost }}</p>
+                                            <img src="/img/veg.png" alt="veg icon" class="" style="width: 25px;">
+                                        </div>
                                         <small class="text-decoration-line-through text-muted"
                                             v-if="product.prices[0].originalCost">
                                             Rs. {{ product.prices[0].originalCost }}
@@ -112,9 +115,12 @@ export default {
 
 .veg-icon {
     position: absolute;
-    bottom: 5px;/* Adjust as needed for spacing */
-    right: 5px;/* Adjust for horizontal alignment */
-    width: 25px;/* Adjust the size of the veg icon */
+    bottom: 5px;
+    /* Adjust as needed for spacing */
+    right: 5px;
+    /* Adjust for horizontal alignment */
+    width: 25px;
+    /* Adjust the size of the veg icon */
     z-index: 1;
 }
 

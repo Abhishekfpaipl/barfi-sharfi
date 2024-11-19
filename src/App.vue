@@ -4,16 +4,16 @@
     <router-view />
   </transition>
   <FooterBar />
-  <BottomNav />
+  <HomeBottomNav />
 </template>
 <script>
-import BottomNav from '@/components/BottomNav.vue';
+import HomeBottomNav from '@/components/HomeBottomNav.vue';
 import FooterBar from '@/components/FooterBar.vue';
 import TopNav from '@/components/TopNav.vue'
 export default {
   name: 'E-comApp',
   components: {
-    BottomNav,
+    HomeBottomNav,
     TopNav,
     FooterBar,
   },
