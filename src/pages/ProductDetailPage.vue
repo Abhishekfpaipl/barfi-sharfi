@@ -11,11 +11,13 @@
                 </div>
             </div>
             <div class="col-md-8 prod-details">
-                <div class="d-flex justify-content-between align-items-center bg-white p-2 mb-2">
+                <div class="d-flex justify-content-between align-items-start bg-white p-2 mb-2">
                     <div class="text-capitalize">
                         <p class="mb-0 fw-bold fs-4 text-start">{{ product.name }}</p>
-                        <small class="text-muted">{{ product.category }}</small>
-                        <small class="text-muted ms-2">({{ product.sub_category }})</small>
+                        <div class="d-flex">
+                            <p class="text-start mb-1 small text-muted">{{ product.vendor }}</p>
+                            <p class="text-start mb-1 small text-muted ms-2">({{ product.type }})</p>
+                        </div>
                     </div>
                     <div class="d-flex gap-2 fs-5">
                         <div class="d-flex gap-2 fs-5">
@@ -23,16 +25,23 @@
                         </div>
                     </div>
                 </div>
-                <a href="#reviews"
-                    class="bg-white p-2 d-flex justify-content-between align-items-center text-dark text-decoration-none">
-                    <strong class="text-start"><span v-if="product.currency === 'INR'">₹</span> {{ product.price }}
-                        <span v-if="product.currency === 'INR'">{{
-                            product.currency }}</span> <span v-else> USD</span></strong>
-                    <div class="d-flex align-items-center">
-                        <p class="mb-0 me-2 ">Reviews ({{ product.reviews.length }})</p>
-                        <i v-for="n in 5" :key="n" class="bi bi-star-fill"> </i>
+                <div class="bg-white p-2 ">
+                    <div class="bg-light rounded">
+                        <p class="text-start mb-0">Choose your options :</p>
+                        <div class="my-2" v-for="(price, index) in product.prices" :key="index">
+                            <input type="radio" name="product-size" class="btn-check" :id="'selectProductSize' + index"
+                                autocomplete="off" :value="price.size" v-model="selectedRange">
+                            <label class="btn btn-outline-dark btn-sm rounded w-100 d-flex justify-content-between"
+                                :for="'selectProductSize' + index">
+                                <span>{{ price.size }}</span><span>₹ {{ price.cost }}</span>
+                            </label>
+                        </div>
                     </div>
-                </a>
+                    <a href="#reviews" class="d-flex align-items-center text-dark text-decoration-none my-3">
+                        <p class="mb-0 me-2 ">Reviews ({{ product.reviews }})</p>
+                        <i v-for="n in 5" :key="n" class="bi bi-star-fill"> </i>
+                    </a>
+                </div>
                 <p v-if="product.info" class="text-start mb-0 px-2">{{ product.info }}</p>
                 <p v-else class="px-2 mb-0 text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Officiis animi eum repudiandae non molestias adipisci cupiditate numquam. Impedit
@@ -95,17 +104,22 @@
             </button>
         </div>
     </div>
+    <div class="my-5">
+        <SimilarProducts />
+    </div>
     <ProductReview :product="product" />
 </template>
 
 <script>
 import ProductDetails from '@/components/ProductDetails.vue';
 import ProductReview from '@/components/ProductReview.vue';
+import SimilarProducts from '@/components/SimilarProducts.vue'
 
 export default {
     components: {
         ProductDetails,
         ProductReview,
+        SimilarProducts,
     },
     data() {
         return {

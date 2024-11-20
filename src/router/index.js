@@ -42,6 +42,11 @@ const routes = [
     component: () => import("@/pages/SearchPage.vue")
   },
   {
+    path: "/cart-page",
+    name: "CartPage",
+    component: () => import("@/pages/CartPage.vue")
+  },
+  {
     path: "/product-list/:categoryId/:subcategoryId",
     name: "ProductListPage",
     component: () => import("@/pages/ProductListPage.vue")

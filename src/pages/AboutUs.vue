@@ -1,52 +1,77 @@
 <template>
     <div class="" style="padding-top: 60px;overflow-x: hidden;">
         <SectionTopBanner />
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <!-- Left side - Product Images -->
-                <div class="col-md-6 mb-4 mb-lg-0">
-                    <div class="product-images">
-                        <img src="https://carolieto.com/uploads/about/1705298177_about.jpg"
-                            alt="Carolieto Shower Products" class="img-fluid product-showcase">
-                    </div>
-                </div>
-                <!-- Right side - Company Information -->
+        <div class="container my-5">
+            <!-- Header Section -->
+            <div class="text-center mb-4">
+                <h1 class="fw-bold">Welcome to SweeDesi</h1>
+                <p class="lead text-muted">
+                    Bringing the authentic flavors of India right to your doorstep.
+                </p>
+            </div>
+
+            <!-- About Section -->
+            <div class="row align-items-center mb-5">
                 <div class="col-md-6">
-                    <div class="text-start">
-                        <h1 class="mb-4">COMPANY PROFILE</h1>
+                    <h2 class="fw-bold">Relive the Nostalgia</h2>
+                    <p>
+                        In today’s busy world, SweeDesi brings back the essence of your roots,
+                        with authentic, unadulterated sweets and snacks sourced from the best
+                        regional vendors known for their generational expertise.
+                    </p>
+                    <p>
+                        Whether you're craving traditional delicacies or exploring India's rich
+                        culinary heritage, we deliver the flavors that make you feel at home.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/500x300" alt="SweeDesi Delicacies"
+                        class="img-fluid rounded" />
+                </div>
+            </div>
 
-                        <div class="content">
-                            <p class="mb-4">
-                                Carolieto is the single biggest acquisition by the Marca Coroma Group. It also
-                                collaborates with technology from Japan and France, which revolutionizes the
-                                concept of Smart Bathrooms.
-                            </p>
-
-                            <p class="mb-4">
-                                The Marca Coroma Group is a legacy of 60 years of Engineering, which began
-                                with Projects in faraway lands of Iraq and Dubai in the 1960s. Having exports in
-                                about 17 countries, the present day Marca Coroma Group, is the biggest
-                                manufacturer of the Showers category in the Indian Bathroom Fittings
-                                Industry, with more than 140 plus designs.
-                            </p>
-
-                            <p class="mb-4">
-                                Each Industry, be it Electronics or Automobiles, goes through a
-                                transformational process and reaches a crescendo. This Crescendo in the
-                                Bathroom Fittings Industry is what we bring forth in this latest International
-                                Presentation by Carolieto, where the Customer, will have complete discretion
-                                to choose his Wall to Wall Showering Experience.
-                            </p>
-
-                            <p class="innovation-text">
-                                Each day, at Carolieto, you would find a renewed energy, to improve on the
-                                yesterday. And that focus on improvements with renewed energy is what ensures,
-                                that every Carolieto product, always remains the ultimate. Innovation is at
-                                it's crescendo when you choose a Carolieto product.
+            <!-- Features Section -->
+            <div class="row text-center mb-5">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Authentic & Fresh</h5>
+                            <p class="card-text">
+                                Sourced from the best regional vendors, ensuring fresh, pure, and
+                                preservative-free products every time.
                             </p>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Fast Delivery</h5>
+                            <p class="card-text">
+                                Multi-layer packaging and fast delivery keep your sweets intact and
+                                as fresh as when they were made.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Discover India's Flavours</h5>
+                            <p class="card-text">
+                                Explore the diverse culinary heritage of India with unique and
+                                traditional sweets and snacks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center">
+                <h3 class="fw-bold">Ready to Experience the Sweetness?</h3>
+                <p class="text-muted">Order now and rediscover the joy of authentic Indian flavors.</p>
+                <a href="#" class="btn btn-primary btn-lg">Shop Now</a>
             </div>
         </div>
     </div>
@@ -66,11 +91,22 @@ export default {
 }
 </script>
 <style scoped>
-.innovation-text {
-    color: #0A324B;
-    font-style: italic;
-    border-left: 3px solid #C69C6D;
-    padding-left: 1rem;
-    margin-top: 2rem;
+h1,
+h2 {
+    color: #6c757d;
+}
+
+.card-title {
+    color: #ff5722;
+}
+
+.btn-primary {
+    background-color: #ff5722;
+    border-color: #ff5722;
+}
+
+.btn-primary:hover {
+    background-color: #e64a19;
+    border-color: #e64a19;
 }
 </style>

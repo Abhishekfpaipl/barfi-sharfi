@@ -20,7 +20,7 @@
     <!-- Offcanvas -->
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Menus</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body small">
@@ -68,7 +68,7 @@ export default {
                     name: 'About'
                 },
                 {
-                    path: '/',
+                    path: '/cart-page',
                     icon: 'bi-cart',
                     name: 'Cart'
                 },

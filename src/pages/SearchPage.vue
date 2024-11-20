@@ -10,52 +10,64 @@
             <div class="col-12 col-md-6 mb-3">
                 <select v-model="selectedCategory" class="form-select">
                     <option value="">All Categories</option>
-                    <option v-for="category in categories" :key="category.sid" :value="category.sid">
-                        {{ category.name }}
+                    <option v-for="collection in collections" :key="collection.id" :value="collection.type">
+                        {{ collection.type }}
                     </option>
                 </select>
             </div>
         </div>
 
         <!-- Product Cards Section -->
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 my-5 justify-content-center">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 my-5 ">
             <div v-for="(product, index) in filteredProducts" :key="index" class="col">
-                <router-link :to="'/product-detail/' + product.sid"
-                    class="card h-100 product-card bg-light text-decoration-none">
-                    <div class="text-center mb-3">
-                        <img :src="product.image" :alt="product.name" class="card-img-top" style="max-height: 250px;">
+                <div class="card h-100 border shadow-sm" data-bs-toggle="modal" data-bs-target="#quickAddModal"
+                    :data-bs-productsid="product.sid" aria-controls="addProduct">
+                    <div class="d-flex justify-content-between align-items-center position-absolute w-100"
+                        style="top: 1%;z-index: 10;">
+                        <span class="badge bg-danger rounded-end-5">
+                            <i class="bi bi-heart-fill me-2" style="color: white !important;"></i>
+                            {{ product.reviews }}
+                        </span>
                     </div>
-                    <p class="text-start my-2 px-2 small text-ellipsis2" style="min-height: 42px;">{{ product.name }}
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center mb-2 p-2">
-                        <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price }} <span
-                                v-if="product.currency === 'INR'">{{
-                                    product.currency }}</span> <span v-else> USD</span></strong>
-                        <div class="small">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
+                    <img :src="product.image" :alt="product.name" class="card-img-top product-image">
+                    <div class="card-body text-start">
+                        <span v-if="product.badge" class="badge bg-success d-block">
+                            {{ product.badge }}
+                        </span>
+                        <p class="card-title small mb-2 fw-bold">{{ product.name }}</p>
+                        <p class="text-ellipsis2 smaller">{{ product.description }}</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="flex-fill d-flex justify-content-between align-items-center">
+                                <p class="mb-0">Rs. {{ product.prices[0].cost }}</p>
+                                <img src="/img/veg.png" alt="veg icon" class="" style="width: 25px;">
+                            </div>
+                            <small class="text-decoration-line-through text-muted"
+                                v-if="product.prices[0].originalCost">
+                                Rs. {{ product.prices[0].originalCost }}
+                            </small>
                         </div>
                     </div>
-
-                    <!-- <div v-if="product.color" class="d-flex overflow-x-scroll gap-2 mb-3 justify-content-center"
-                        id="scroll">
-                        <img v-for="(color, index) in product.color" :key="index" :src="color.image"
-                            class="btn rounded-circle p-0 border-0" style="width:40px;height:40px;">
-                    </div> -->
-
-                    <!-- <p class="text-muted small text-ellipsis3">{{ product.info }}</p> -->
-                </router-link>
+                    <div class="d-flex justify-content-center align-items-center mb-2">
+                        <button class="btn text-white w-75 mt-3" data-bs-toggle="modal" data-bs-target="#quickAddModal"
+                            :data-bs-productsid="product.sid" aria-controls="addProduct"
+                            style="background-color: var(--primary-color);">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <QuickAdd :product="products" />
 </template>
 
 <script>
+import QuickAdd from "@/components/QuickAdd.vue"
 export default {
     name: 'SearchPage',
+    components: { 
+        QuickAdd,
+    },
     data() {
         return {
             searchQuery: '',
@@ -66,13 +78,13 @@ export default {
         products() {
             return this.$store.getters.getProducts;
         },
-        categories() {
-            return this.$store.getters['category/getCategories']
+        collections() {
+            return this.$store.getters.getCollections
         },
         filteredProducts() {
             return this.products.filter(product => {
                 const matchesSearch = product.name.toLowerCase().includes(this.searchQuery.toLowerCase());
-                const matchesCategory = this.selectedCategory ? product.category === this.selectedCategory : true;
+                const matchesCategory = this.selectedCategory ? product.type === this.selectedCategory : true;
                 return matchesSearch && matchesCategory;
             });
         }
@@ -84,6 +96,14 @@ export default {
 .product-card {
     transition: transform 0.2s;
 }
+
+.product-image {
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+}
+
 
 .product-card:hover {
     transform: translateY(-5px);
