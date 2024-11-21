@@ -1,11 +1,18 @@
 <template>
-    <div class="container-fluid px-0 my-5">
-        <div v-for="(collection, index) in collections" :key="index">
+    <div class="my-5">
+        <div class="d-flex justify-content-center overflow-x-scroll gap-3 sticky-top" id="scroll"
+            style="background-color: var(--primary-color);">
+            <a :href="'#menu' + index" class="btn text-white text-capitalize rounded-0"
+                v-for="(collection, index) in collections" :key="index">{{
+                    collection.type
+                }}</a>
+        </div>
+        <div v-for="(collection, index) in collections" :key="index" class="container-fluid">
             <button class="btn w-100 text-start rounded-0 my-5"
-                style="background-color: var(--primary-color); color: var(--secondary-color);" type="button"
+                style="background-color: var(--secondary-color);" type="button"
                 data-bs-toggle="collapse" :data-bs-target="'#collapseExample' + index" aria-expanded="false"
                 :aria-controls="'collapseExample' + index" @click="toggleCollapse(index)" :id="'menu' + index">
-                <p class="text-capitalize fs-5 mb-1">{{ collection.type }}</p>
+                <p class="text-capitalize fs-5 mb-1 pt-5">{{ collection.type }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="smaller">{{ collection.shortDescription }}</p>
                     <i :class="['bi', isOpen(index) ? 'bi-chevron-up' : 'bi-chevron-down', 'chevron-icon']"></i>
@@ -35,12 +42,12 @@
                                         <div class="d-flex align-items-center gap-2">
                                             <div class="flex-fill d-flex justify-content-between align-items-center">
                                                 <p class="mb-0">Rs. {{ product.prices[0].cost }}</p>
-                                                <img src="/img/veg.png" alt="veg icon" class="" style="width: 25px;">
+                                                <img src="/img/veg.svg" alt="veg icon" class="" style="width: 25px;">
                                             </div>
-                                            <small class="text-decoration-line-through text-muted"
+                                            <!-- <small class="text-decoration-line-through text-muted"
                                                 v-if="product.prices[0].originalCost">
                                                 Rs. {{ product.prices[0].originalCost }}
-                                            </small>
+                                            </small> -->
                                         </div>
                                     </div>
                                 </router-link>
@@ -103,6 +110,12 @@ export default {
 </script>
 
 <style scoped>
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
 .product-image {
     height: 180px;
     object-fit: cover;

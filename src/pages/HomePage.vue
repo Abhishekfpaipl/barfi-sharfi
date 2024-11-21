@@ -1,6 +1,6 @@
 <template>
     <!-- Mobile version starts -->
-    <div class="" style="overflow-x: hidden;">
+    <div class="">
         <CarouselBanner />
         <div class="">
             <NewProductCard />
@@ -23,7 +23,8 @@ import CarouselBanner from '@/components/CarouselBanner.vue'
 import NewProductCard from '@/components/NewProductCard.vue'
 // import AnimatedTextSection from '@/components/AnimatedTextSection.vue'
 import FeaturesBox from '@/components/FeaturesBox.vue'
-import SimilarProducts from '@/components/SimilarProducts.vue' 
+import SimilarProducts from '@/components/SimilarProducts.vue'
+import axios from 'axios'
 export default {
     name: "HomePage",
     components: {
@@ -31,12 +32,31 @@ export default {
         CarouselBanner,
         // AnimatedTextSection,
         FeaturesBox,
-        SimilarProducts, 
+        SimilarProducts,
     },
     data() {
         return {
+            products: []
         };
     },
+    mounted() {
+        this.fetchproducts();
+    },
+    methods: {
+        async fetchproducts() {
+            try {
+                const response = await axios.get('https://apixly.in/api/store/products', {
+                    headers: {
+                        Authorization: 'Bearer $2y$12$jIvenvn2yYXlAhWpxRl3I.DOHRO0EtydXbTa0psIXWUU1qiLuyZwS'
+                    }
+                });
+                this.products = response.data;
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+    }
+
 };
 </script>
 <style scoped>

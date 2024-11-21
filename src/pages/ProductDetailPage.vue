@@ -127,6 +127,7 @@ export default {
             selectedColor: null,
             quantity: 1,
             showPopupCart: false,
+            selectedRange: null,
         };
     },
     mounted() {

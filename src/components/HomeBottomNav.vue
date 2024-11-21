@@ -1,8 +1,7 @@
 <template>
-    <nav class="navbar navbar-expand-lg p-0 border-top position-fixed bottom-0 w-100"
-        style="z-index: 11;background-color: var(--secondary-color);">
-        <div class="container-fluid">
-
+    <!-- <nav class="navbar navbar-expand-lg p-0 border-top position-fixed bottom-0 w-100"
+        style="z-index: 11;background-color: var(--secondary-color);"> -->
+        <div class="container-fluid position-fixed border-top bottom-0 w-100"  style="z-index: 11;background-color: var(--secondary-color);">
             <div class="navbar-nav d-flex flex-row w-100 justify-content-around">
                 <div class="nav-item" v-for="(link, linkIndex) in links" :key="linkIndex">
                     <router-link :to="link.path" class="nav-link text-secondary"
@@ -15,7 +14,7 @@
                 </div>
             </div>
         </div>
-    </nav>
+    <!-- </nav> -->
 
     <!-- Offcanvas -->
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
